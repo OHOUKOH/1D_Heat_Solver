@@ -54,7 +54,7 @@ void WriteOutput( vector<double>& U, int step){
         std::cout << "Writing output to " << filename << "\n";
         file.write(reinterpret_cast<char*>( U.data()), len*sizeof(double));
         
-
+        file.close();
     }
     else{
         
