@@ -50,13 +50,8 @@ void Heatequation1D::Runsimulation( int step){
     for(int i=0 ; i< step; i++){
 
         Heatequation1D::step();
-
-        if(i%10 == 0){
-
-            vector<double> U_ = Heatequation1D::getsimulation();
-
-            WriteOutput(U_, i);
-        }
+        vector<double> U_ = Heatequation1D::getsimulation();
+        WriteOutput(U_, i);
     }
 }
 

@@ -6,11 +6,11 @@ import subprocess
 """
         We perfom the same parameterization as describe in the project
 """
-N = 110                  
+N = 110                 
 tf = 0.5                  
 diffusion_coefficient = 1.0               
 x_min, x_max = 0.0, 1.0   
-delta_t = 0.5 / 110            
+delta_t = 0.5 / N        
 
 """
     Making available directory for configuration .ini , .dat and the results .dat files
@@ -19,7 +19,7 @@ os.makedirs("Setup", exist_ok=True)
 os.makedirs("Output", exist_ok=True)
 
 #We sample N point using the interval [x_min, x_max]
-x = np.linspace(x_min, x_max, N)
+x = np.linspace(x_min, x_max, 100)
 
 """
     Initial condition U(0,.)= Sin(pi*x)

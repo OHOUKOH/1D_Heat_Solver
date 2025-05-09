@@ -31,7 +31,7 @@ int main(){
     // We create an instance heat equation
     Heatequation1D heat_equation_1D(x_min, x_max, delta_t , alpha,  initialcondition);
     
-    //We run 110 simulation
+    //We Build the 2D grid 
     heat_equation_1D.Runsimulation(110);
     
 }
