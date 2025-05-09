@@ -5,28 +5,33 @@ using namespace std;
 
 int main(){
 
-    //We define the path 
+    //We define the path for our init.dat and problem.ini files
     string initial = "./setup/init.dat";
     string parameters = "./setup/problem.ini";
-
+    
+    // We read the initial conditon from ini.dat
     vector<double> initialcondition = ReadInitialConditions(initial);
 
+    // If the initial condition is an empty vector then we signal 
+    // an error.
     if(initialcondition.empty()){
-        cout<<"No initial Condition"<< endl;
+        cout<<"Initial condition vector is empty."<< endl;
         return 1;
     }
 
-  
-    double x_min , x_max , delta_t, alpha , dx;
-
+    // We define the parameters that we will pass to the constructor
+    double x_min , x_max , delta_t, alpha;
+    // A bool which hold value true if we read the value fo problem.ini
     bool b= ReadProblemParameters( parameters, x_min,  x_max, delta_t, alpha );
-
     if(!b){
         cout<<"Cannot read problem parameters"<< endl;
         return 1;
     }
 
-    Heatequation1D solver(x_min, x_max, delta_t , alpha,  initialcondition);
-    printf("1111111111111");
-    solver.Runsimulation(110);
+    // We create an instance heat equation
+    Heatequation1D heat_equation_1D(x_min, x_max, delta_t , alpha,  initialcondition);
+    
+    //We run 110 simulation
+    heat_equation_1D.Runsimulation(110);
+    
 }

@@ -15,7 +15,7 @@ void Heatequation1D::step( ){
     //Before computing the centered-finite-differences
     // And first order explicit time stepping We check the stability condition
     //Courant–Friedrichs–Lewy condition
-    double lambda = delta_t / (dx*dx);
+    double lambda = alpha*delta_t / (dx*dx);
 
     // We ensure Dirichlet condition
     U_t[0] = U[0];
@@ -24,7 +24,7 @@ void Heatequation1D::step( ){
     if( lambda>0.5){
         // If the stability condition is not satisfy 
         //We print a warning a runing times
-        cerr<< "Warning: Convergence condition not satisfy"<< endl;
+        cerr<< "Warning: Stability condition not satisfy"<< endl;
     }
 
     for(int i=1 ; i< grid-1; i++){
