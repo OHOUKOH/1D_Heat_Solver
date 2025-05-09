@@ -35,25 +35,26 @@ x = np.linspace(x_min, x_max, N)
 U_0 = np.sin(np.pi * x)   
 U_0.astype(np.float64).tofile("./Setup/init.dat")
 
-# We then open our problem.ini and write onto it using key pair value .
-with open("Setup/problem.ini", "w") as f:
-    f.write(f"x_min = {x_min}\n")
-    f.write(f"x_max = {x_max}\n")
-    f.write(f"delta_t = {delta_t:.16f}\n")
-    f.write(f"diffusion_coefficient = {diffusion_coefficient}\n")
 
 """
     We call our c++ program executable
 """
+
+
 print("Heat equation program lauching")
 result = subprocess.run(["./Bin/heat_solver.exe"])  
+# result must be 0 if the execution was successful.
 if result.returncode != 0:
     print("C++ program failed.")
     exit(1)
 
 
+#Once the output is ready we need to add them into a single array.
+#First we sort ensure timestep consitency
+#By taking step vlaue between _ and . dat.
+
 output_files = sorted([
-    f for f in os.listdir("Output")
+    f for f in os.listdir("./Output/")
     if f.startswith("output_") and f.endswith(".dat")
 ], key=lambda name: int(name.split("_")[1].split(".")[0]))
 if not output_files:
@@ -85,3 +86,9 @@ plt.ylabel("Time")
 plt.title("Heat Equation: Temperature Evolution Over Time")
 plt.tight_layout()
 plt.show()
+
+
+
+
+
+
