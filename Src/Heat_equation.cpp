@@ -17,7 +17,7 @@ void Heatequation1D::step( ){
     //Courant–Friedrichs–Lewy condition
     double lambda = alpha*delta_t / (dx*dx);
 
-    // We ensure Dirichlet condition
+    // We ensure boundary conditions
     U_t[0] = U[0];
     U_t[grid-1] = U_t[grid-1];
 
@@ -51,7 +51,7 @@ void Heatequation1D::Runsimulation( int step){
 
         Heatequation1D::step();
         vector<double> U_ = Heatequation1D::getsimulation();
-        WriteOutput(U_, i);
+        Output_dat(U_, i);
     }
 }
 

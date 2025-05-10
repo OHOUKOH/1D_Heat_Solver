@@ -10,7 +10,7 @@ int main(){
     string parameters = "./setup/problem.ini";
     
     // We read the initial conditon from ini.dat
-    vector<double> initialcondition = ReadInitialConditions(initial);
+    vector<double> initialcondition = Initial_Conditions(initial);
 
     // If the initial condition is an empty vector then we signal 
     // an error.
@@ -19,19 +19,19 @@ int main(){
         return 1;
     }
 
-    // We define the parameters that we will pass to the constructor
+    // We define the parameters that we will pass to the constructor.
     double x_min , x_max , delta_t, alpha;
-    // A bool which hold value true if we read the value fo problem.ini
-    bool b= ReadProblemParameters( parameters, x_min,  x_max, delta_t, alpha );
+    // A bool which hold value true if we read the value fo problem.ini.
+    bool b= Problem_Parameters( parameters, x_min,  x_max, delta_t, alpha );
     if(!b){
         cout<<"Cannot read problem parameters"<< endl;
         return 1;
     }
 
-    // We create an instance heat equation
+    // We create an instance heat equation.
     Heatequation1D heat_equation_1D(x_min, x_max, delta_t , alpha,  initialcondition);
     
-    //We Build the 2D grid 
+    //We Build the  110 heat file containing 64bit floats.
     heat_equation_1D.Runsimulation(110);
     
 }

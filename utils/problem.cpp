@@ -4,7 +4,7 @@ int main() {
 
     std::ofstream file("Setup/problem.ini");
     if (!file) {
-        std::cerr << "Failed to open 'Setup/problem.ini' for writing.\n";
+        std::cerr << "Warning: failed to open 'Setup/problem.ini' for writing.\n";
         return 1;
     }
 
@@ -24,7 +24,7 @@ int main() {
     file << "diffusion_coefficient = " << diffusion_coefficient << "\n";
 
     file.close();
-    std::cout << "File 'Setup/problem.ini' written successfully.\n";
+    std::cout << "The Setup/problem.ini file is written successfully.\n";
 
     return 0;
 }

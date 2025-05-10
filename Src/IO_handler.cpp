@@ -5,7 +5,7 @@ using namespace std;
 //We define Read and write function 
 // Which will allow us to read initial conditions and parameters.
 
-vector<double> ReadInitialConditions(const string& filename){
+vector<double> Initial_Conditions(const string& filename){
         // We used input file stream to read from the filename
         //We open it in binary mode given that initial conditions are
         //in group of 64 bits
@@ -34,7 +34,7 @@ vector<double> ReadInitialConditions(const string& filename){
 }
 
 
-bool ReadProblemParameters(const string& filename, double& x_min, double& x_max, double& delta_t, double& alpha){
+bool Problem_Parameters(const string& filename, double& x_min, double& x_max, double& delta_t, double& alpha){
 
     // We use input file stream to read data from filename.
     ifstream file(filename );
@@ -52,7 +52,7 @@ bool ReadProblemParameters(const string& filename, double& x_min, double& x_max,
 
 }
 
-void WriteOutput( vector<double>& U, int step){
+void Output_dat( vector<double>& U, int step){
     // We ensure we write the output back to the folder Output
     //with the specific format.
     string filename = "./Output/output_" + to_string(step) +".dat";

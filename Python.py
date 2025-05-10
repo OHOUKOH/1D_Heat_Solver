@@ -42,7 +42,8 @@ U_0.astype(np.float64).tofile("./Setup/init.dat")
 
 
 print("Heat equation program lauching")
-result = subprocess.run(["./Bin/heat_solver.exe"])  
+result = subprocess.run(["./Bin/heat_solver.exe"])
+ 
 # result must be 0 if the execution was successful.
 if result.returncode != 0:
     print("C++ program failed.")

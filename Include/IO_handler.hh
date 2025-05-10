@@ -7,10 +7,10 @@ using namespace std;
 //We define Read and write function 
 // Which will allw us to read initial condition and parameter
 
-vector<double> ReadInitialConditions(const string& filename);
+vector<double> Initial_Conditions(const string& filename);
 
-bool ReadProblemParameters(const string& filename,int& grid, double& x_min, double& x_max, double& delta_t, double& alpha);
+bool Problem_Parameters(const string& filename,int& grid, double& x_min, double& x_max, double& delta_t, double& alpha);
 
-void WriteOutput( vector<double>& U, int step);
+void Output_dat( vector<double>& U, int step);
 
 #endif

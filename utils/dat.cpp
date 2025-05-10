@@ -12,13 +12,13 @@ int main() {
 
     std::ofstream outfile("Setup/init.dat", std::ios::binary);
     if (!outfile) {
-        std::cerr << "Error: could not open file for writing.\n";
+        std::cerr << "Warning: could not open file for writing.\n";
         return 1;
     }
 
     outfile.write(reinterpret_cast<const char*>(data.data()), N * sizeof(double));
     outfile.close();
 
-    std::cout << "File 'Setup/init.dat' written successfully.\n";
+    std::cout << "The 'Setup/init.dat' written successfully.\n";
     return 0;
 }
