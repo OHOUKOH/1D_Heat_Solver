@@ -86,7 +86,10 @@ plt.xlabel("x")
 plt.ylabel("Time")
 plt.title("Heat Equation: Temperature Evolution Over Time")
 plt.tight_layout()
+plt.savefig('./2Dheatmap/2D_heatmap.png', dpi=300) 
 plt.show()
+
+
 
 
 
