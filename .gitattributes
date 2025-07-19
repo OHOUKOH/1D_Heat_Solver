@@ -1,0 +1,9 @@
+# Hide these languages from GitHub language stats
+*.ipynb linguist-detectable=false
+*.java linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+
+# Show only C++ in stats
+*.cpp linguist-detectable=true
+*.h linguist-detectable=true
